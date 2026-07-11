@@ -7,23 +7,24 @@ import {Tasks} from "@/features/todolists/ui/Todolists/TodolistItem/Tasks/Tasks"
 import {FilterButtons} from "@/features/todolists/ui/Todolists/TodolistItem/FilterButtons/FilterButtons";
 
 type Props = {
-  todolist: Todolist
+    todolist: Todolist
 }
 
 export const TodolistItem = ({todolist}: Props) => {
-  const dispatch = useAppDispatch()
 
-  const createTaskHandler = (title: string) => {
-    dispatch(createTaskAC({todolistId:todolist.id, title}))
-  }
+    const dispatch = useAppDispatch()
 
+    const createTaskHandler = (title: string) => {
+        dispatch(createTaskAC({todolistId: todolist.id, title}))
+    }
 
-  return (
-      <div>
-        <TodolistTitle todolist={todolist}/>
-        <CreateItemForm onCreateItem={createTaskHandler}/>
-        <Tasks todolist={todolist}/>
-        <FilterButtons todolist={todolist}/>
-      </div>
-  )
+    return (
+        <div>
+            <TodolistTitle todolist={todolist}/>
+            <CreateItemForm onCreateItem={createTaskHandler}/>
+            <Tasks todolist={todolist}/>
+            <FilterButtons todolist={todolist}/>
+
+        </div>
+    )
 }

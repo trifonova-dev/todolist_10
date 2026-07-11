@@ -1,26 +1,22 @@
+import {AppBar, Container, IconButton, Switch, Toolbar} from "@mui/material";
+
+import {NavButton} from "@/common/components/NavButton/NavButton";
+import MenuIcon from '@mui/icons-material/Menu'
+import {useAppDispatch} from "@/common/hooks/useAppDispatch";
+import {changeThemeModeAC} from "@/app/app-reducer";
+import {getTheme} from "@/common/theme/theme";
 import {useAppSelector} from "@/common/hooks/useAppSelector";
 import {selectThemeMode} from "@/app/app-selectors";
-import {useAppDispatch} from "@/common/hooks/useAppDispatch";
-import {getTheme} from "@/common/theme/theme";
-import {changeThemeModeAC} from "@/app/app-reducer";
-import AppBar from "@mui/material/AppBar";
-import {Container, IconButton, Toolbar} from "@mui/material";
-import {NavButton} from "@/common/components/NavButton/NavButton";
-import Switch from "@mui/material/Switch";
-import MenuIcon from "@mui/icons-material/Menu";
-import {containerSx} from "@/common/styles/container.styles";
+import {containerSx} from "@/common/styles/container.styles.";
 
 export const Header = () => {
     const themeMode = useAppSelector(selectThemeMode)
-
     const dispatch = useAppDispatch()
-
-    const theme= getTheme(themeMode)
+    const theme = getTheme(themeMode)
 
     const changeMode = () => {
         dispatch(changeThemeModeAC({themeMode: themeMode === 'light' ? 'dark' : 'light'}))
     }
-
     return (
         <AppBar position="static" sx={{mb: '30px'}}>
             <Toolbar>
@@ -32,7 +28,7 @@ export const Header = () => {
                         <NavButton>Sign in</NavButton>
                         <NavButton>Sign up</NavButton>
                         <NavButton background={theme.palette.primary.dark}>Faq</NavButton>
-                        <Switch color={'default'} onChange={changeMode} />
+                        <Switch color={'default'} onChange={changeMode}/>
                     </div>
                 </Container>
             </Toolbar>

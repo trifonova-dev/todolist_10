@@ -1,6 +1,6 @@
 import {Grid, Paper} from "@mui/material";
-import {selectTodolists} from "@/features/todolists/model/todolists-selectors";
 import {useAppSelector} from "../../../../common/hooks/useAppSelector";
+import {selectTodolists} from "@/features/todolists/model/todolists-selectors";
 import {TodolistItem} from "@/features/todolists/ui/Todolists/TodolistItem/TodolistItem";
 
 export const Todolists = () => {
@@ -9,7 +9,6 @@ export const Todolists = () => {
     return (
         <div>
             {todolists.map(todolist => {
-
                 return (
                     <Grid key={todolist.id}>
                         <Paper sx={{p: '0 20px 20px 20px'}}>
