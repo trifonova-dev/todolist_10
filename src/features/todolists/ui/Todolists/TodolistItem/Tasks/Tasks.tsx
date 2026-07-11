@@ -1,8 +1,8 @@
 import type {Todolist} from "@/app/App";
-import {selectTasks} from "@/features/todolists/model/tasks-selectors";
 import {useAppSelector} from "../../../../../../common/hooks/useAppSelector";
+import {selectTasks} from "../../../../../../model/tasks-selectors";
 import {List} from "@mui/material";
-import {TasksItem} from "@/features/todolists/ui/Todolists/TodolistItem/Tasks/TasksItem/TasksItem";
+import {TaskItem} from "@/features/todolists/ui/Todolists/TodolistItem/Tasks/TaskItem/TaskItem";
 
 type Props = {
     todolist: Todolist
@@ -20,16 +20,17 @@ export const Tasks = ({todolist}: Props) => {
     if (filter === 'completed') {
         filteredTasks = todolistTasks.filter(task => task.isDone)
     }
-
     return (
         <div>
             {filteredTasks.length === 0 ? (
                 <p>Тасок нет</p>
             ) : (
                 <List>
-                    {filteredTasks.map(task => (
-                        <TasksItem key={task.id} task={task} todolistId={id}/>
-                    ))}
+                    {filteredTasks.map(task => {
+                        return (
+                           <TaskItem key={task.id} task={task} todolistId={id} />
+                        )
+                    })}
                 </List>
             )}
         </div>

@@ -2,9 +2,9 @@ import './App.module.css'
 import {ThemeProvider} from '@mui/material/styles'
 import {useAppSelector} from '@/common/hooks/useAppSelector'
 import CssBaseline from '@mui/material/CssBaseline'
-import {Header} from "@/common/components/Header/Header";
-import {getTheme} from "@/common/theme/theme";
 import {selectThemeMode} from "@/app/app-selectors";
+import {getTheme} from "@/common/theme/theme";
+import {Header} from "@/common/Header/Header";
 import {Main} from "@/app/Main";
 
 export type Todolist = {
@@ -23,10 +23,10 @@ export type FilterValues = 'all' | 'active' | 'completed'
 
 export type TasksState = Record<string, Task[]>
 
-
 export const App = () => {
 
     const themeMode = useAppSelector(selectThemeMode)
+
     const theme = getTheme(themeMode)
 
     return (

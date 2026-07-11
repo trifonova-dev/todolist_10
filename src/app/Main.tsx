@@ -1,7 +1,7 @@
 import {useAppDispatch} from "@/common/hooks/useAppDispatch";
-import {createTodolistAC} from "@/features/todolists/model/todolists-reducer";
+import {createTodolistAC} from "@/model/todolists-reducer";
 import {Container, Grid} from "@mui/material";
-import {CreateItemForm} from "@/common/components/CreateItemForm/CreateItemForm";
+import {CreateItemForm} from "@/common/CreateItemForm/CreateItemForm";
 import {Todolists} from "@/features/todolists/ui/Todolists/Todolists";
 
 export const Main = () => {
