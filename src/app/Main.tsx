@@ -1,8 +1,8 @@
 import {useAppDispatch} from "@/common/hooks/useAppDispatch";
-import {createTodolistAC} from "@/model/todolists-reducer";
+import {createTodolistAC} from "@/common/features/todolists/model/todolists-reducer";
 import {Container, Grid} from "@mui/material";
 import {CreateItemForm} from "@/common/CreateItemForm/CreateItemForm";
-import {Todolists} from "@/features/todolists/ui/Todolists/Todolists";
+import {Todolists} from "@/common/features/todolists/ui/Todolists/Todolists";
 
 export const Main = () => {
 
@@ -11,7 +11,6 @@ export const Main = () => {
     const createTodolist = (title: string) => {
         dispatch(createTodolistAC(title))
     }
-
     return (
         <Container maxWidth={'lg'}>
             <Grid container sx={{mb: '30px'}}>

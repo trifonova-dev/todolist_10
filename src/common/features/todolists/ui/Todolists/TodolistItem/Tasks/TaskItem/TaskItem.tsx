@@ -1,12 +1,11 @@
-import {useAppDispatch} from "@/common/hooks/useAppDispatch";
-import {changeTaskStatusAC, changeTaskTitleAC, deleteTaskAC} from "../../../../../../../model/tasks-reducer";
-import type {Task} from "@/app/App";
-import type {ChangeEvent} from "react";
 import {Checkbox, IconButton, ListItem} from "@mui/material";
-import {EditableSpan} from "../../../../../../../common/EditableSpan/EditableSpan";
+import {useAppDispatch} from "../../../../../../../hooks/useAppDispatch";
+import {changeTaskStatusAC, changeTaskTitleAC, deleteTaskAC} from "@/common/features/todolists/model/tasks-reducer";
+import type {ChangeEvent} from "react";
+import {EditableSpan} from "../../../../../../../EditableSpan/EditableSpan";
 import DeleteIcon from "@mui/icons-material/Delete";
-import {getListItemSx} from "@/features/todolists/ui/Todolists/TodolistItem/Tasks/TaskItem/TaskItem.styles";
-
+import type {Task} from "@/app/App";
+import {getListItemSx} from "@/common/features/todolists/ui/Todolists/TodolistItem/Tasks/TaskItem/TaskItem.styles";
 
 type Props = {
     todolistId: string
@@ -14,7 +13,6 @@ type Props = {
 }
 
 export const TaskItem = ({todolistId, task}: Props) => {
-
     const dispatch = useAppDispatch()
 
     const deleteTaskHandler = () => {
@@ -41,6 +39,7 @@ export const TaskItem = ({todolistId, task}: Props) => {
                     <DeleteIcon/>
                 </IconButton>
             </ListItem>
+
         </div>
     );
 };

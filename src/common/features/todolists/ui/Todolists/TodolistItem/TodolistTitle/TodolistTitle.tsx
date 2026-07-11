@@ -1,10 +1,10 @@
+import {EditableSpan} from "@/common/EditableSpan/EditableSpan";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
 import {useAppDispatch} from "@/common/hooks/useAppDispatch";
 import type {Todolist} from "@/app/App";
-import {changeTodolistTitleAC, deleteTodolistAC} from "@/model/todolists-reducer";
-import {EditableSpan} from "@/common/EditableSpan/EditableSpan";
-import {IconButton} from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
 import styles from './TodolistTitle.module.css'
+import {changeTodolistTitleAC, deleteTodolistAC} from "@/common/features/todolists/model/todolists-reducer";
 
 type Props = {
     todolist: Todolist
@@ -12,7 +12,6 @@ type Props = {
 
 export const TodolistTitle = ({todolist}: Props) => {
     const {id, title} = todolist
-
     const dispatch = useAppDispatch()
 
     const deleteTodolistHandler = () => {
